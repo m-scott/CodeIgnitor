@@ -1,0 +1,15 @@
+php_value upload_max_filesize 32M
+php_value post_max_size 64M
+php_value max_execution_time 300
+
+
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^/assets/js
+RewriteCond %{REQUEST_URI} !^/assets/css
+RewriteCond %{REQUEST_URI} !^/assets/images
+RewriteCond %{REQUEST_URI} !^/assets/fonts
+
+RewriteCond %{REQUEST_URI} !^/captcha
+RewriteCond %{REQUEST_URI} !^/crossdomain.xml
+RewriteCond $1 !^(index\.php|test\.php|/assets|robots\.txt)
+RewriteRule ^(.*)$ /index.php/$1 [L]
